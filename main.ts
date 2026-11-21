@@ -430,5 +430,6 @@ const BOT_DIR = process.env.MAKEFUN_BOT_DIR || "/bot";
 const OUT_DIR = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 fs.mkdirSync(OUT_DIR, { recursive: true });
 fs.writeFileSync(path.join(OUT_DIR, "meme.png"), encodePNG());
-fs.copyFileSync(path.join(BOT_DIR, "POST.json"), path.join(OUT_DIR, "POST.json"));
+const POST_SRC = path.join(BOT_DIR, "POST.json");
+if (fs.existsSync(POST_SRC)) fs.copyFileSync(POST_SRC, path.join(OUT_DIR, "POST.json"));
 console.log("wrote meme.png (" + W + "x" + H + "), days=" + daysWaited + ", total=$" + billTotal + ".00");
