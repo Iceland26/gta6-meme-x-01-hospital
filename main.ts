@@ -437,4 +437,7 @@ function syncPostJson() {
   if (fs.existsSync(postSrc)) fs.copyFileSync(postSrc, path.join(OUT_DIR, "POST.json"));
 }
 syncPostJson();
-console.log("wrote meme.png (" + W + "x" + H + "), days=" + daysWaited + ", total=$" + billTotal + ".00");
+function logSummary() {
+  console.log("wrote meme.png (" + W + "x" + H + "), days=" + daysWaited + ", total=$" + billTotal + ".00");
+}
+logSummary();
